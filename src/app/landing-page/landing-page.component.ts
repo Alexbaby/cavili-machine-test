@@ -15,7 +15,6 @@ export class LandingPage implements OnInit {
   }
 
   changeComponentTosignUp(e) {
-    console.log('e',e);
     this.isShowSignup = true;
   }
   changeComponentTologin(e) {

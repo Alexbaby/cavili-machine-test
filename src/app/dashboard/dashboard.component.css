@@ -1,0 +1,55 @@
+nav {
+  height: 50px;
+
+}
+
+ .nav-sidebar {
+  position:absolute;
+  top: 0;
+  height: 100vh;
+  margin: 0;
+  width: 200px;
+  background-color: #232525;
+}
+.navbar-expand .navbar-nav {
+  margin: 250px;
+}
+.nav-sidebar h2 {
+  text-align: center;
+  color: white;
+  margin: 20px;
+  padding: 0;
+  font-size: 22px;
+  font-family: sans-serif;
+}
+
+.nav-sidebar .nav-sidebar--menus {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 15px;
+  padding: 25px;
+  font-family: 'Times New Roman', Times, serif
+}
+.nav-sidebar .nav-sidebar--usermain {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.nav-sidebar .nav-sidebar--user {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.nav-sidebar .nav-sidebar--menus li {
+  list-style: none;
+  padding: 13px;
+  cursor: pointer;
+}
+
+
+
+
