@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
+import { DashboardRoutingModule } from './dashboard-routing-module';
+import { DashboardPage } from './dashboard.component';
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    DashboardPage
+  ],
   imports: [
-    FormsModule
+    FormsModule,
+    DashboardRoutingModule
   ],
   exports: []
 })

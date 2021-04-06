@@ -7,7 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardPage,
-
+    children: [{
+      path: 'upload-image',
+      loadChildren: () => import('./upload-user-image/upload-image.module').then(m => m.UploadImageModule)
+    }]
   }];
 
 
