@@ -2,7 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
-const routes: Routes = [];
+import { DashboardPage } from './dashboard/dashboard.component';
+import { LandingPage } from './landing-page/landing-page.component';
+
+
+const routes: Routes = [
+  {
+    path: '', component: LandingPage,
+  },
+  {
+    path: 'dashboard', component: DashboardPage
+  }
+];
 
 @NgModule({
   imports: [

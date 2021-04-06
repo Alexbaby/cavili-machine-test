@@ -8,9 +8,10 @@
     <div class="form-group">
       <input type="password" class="form-control" placeholder=".....">
     </div>
-    <button type="button" class="card-button btn btn-info">Login</button>
+    <button type="button" class="card-button btn btn-info" [routerLink]="['/dashboard']">Login</button>
   </form>
   <div class="card-footer">
     <span (click)="onChangeComponent.emit('signup')">Create An Account</span>
   </div>
 </div>
+<router-outlet></router-outlet>

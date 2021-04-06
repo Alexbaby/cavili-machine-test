@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { InterceptorModule } from './interceptors/interceptor.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { LandingPageModule } from './landing-page/landing-page.module';
     BrowserModule,
     AppRoutingModule,
     InterceptorModule,
-    LandingPageModule
+    LandingPageModule,
+    DashboardModule
 
   ],
   providers: [],
