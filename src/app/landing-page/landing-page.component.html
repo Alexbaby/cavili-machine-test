@@ -1,0 +1,6 @@
+<body>
+  <div class="landing-main">
+    <app-login (onChangeComponent)="changeComponentTosignUp($event)" *ngIf="!isShowSignup"></app-login>
+    <app-signup (onChangeComponent)="changeComponentTologin($event)" *ngIf="isShowSignup"></app-signup>
+  </div>
+</body>

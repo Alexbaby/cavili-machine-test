@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+/* login &&  signup common style start */
+
+.card  {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 350px;
+  height: 380px;
+  border: 3px solid rgb(64, 117, 231);
+  background-color: white;
+}
+
+.card p {
+  text-align: center;
+  font-size: 35px ;
+  font-family: sans-serif;
+  color: black;
+}
+ .card-button {
+  width: 304px;
+}
+.card-footer {
+  color:rgb(64, 117, 231);
+  background-color: white;
+  padding: 10px;
+  margin: 30px;
+  border: 0px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* login &&  signup common style end */
+
+
+
+

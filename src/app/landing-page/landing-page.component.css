@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ height: 100vh;
+ margin: 0px;
+ background-image: url('../../assets/background-image/1.jpg');
+}
+
+

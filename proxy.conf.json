@@ -1,0 +1,8 @@
+{
+	"/nxt_ecom/*": {
+		"target": "http://13.233.60.109",
+		"secure": false,
+		"changeOrigin": true,
+		"logLevel": "debug"
+	}
+}
