@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl,Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { LoginData } from '../credential-types/login-type';
 
 
 @Component({
@@ -12,14 +14,27 @@ export class LoginPage implements OnInit {
 
   @Output() onChangeComponent = new EventEmitter  // change decorator
 
-  loginform:FormGroup;
+  loginform: FormGroup;
+
+  loginData: LoginData = {
+    email: '',
+    password: ''
+  }
 
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
     this.loginform = new FormGroup({
-      'email': new FormControl(null,[Validators.required,Validators.email]),
-      'password': new FormControl(null,Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)]))
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'password': new FormControl(null, Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)]))
     })
+  }
+
+  userSignInForm() {
+    if (this.loginform.invalid) {
+      return
+    }
+    this.loginData = Object.assign(this.loginData, this.loginform.value);
+    console.log('login data',this.loginData);
+
   }
 
 

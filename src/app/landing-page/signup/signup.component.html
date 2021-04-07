@@ -1,13 +1,18 @@
 <div class="card">
-  <form>
+  <form [formGroup]="signUpForm" (ngSubmit)="userRegistration()">
     <p>SIGNUP</p>
     <div class="form-group">
-      <input type="email" class="form-control" placeholder="sam@gmail.com">
+      <input type="email" class="form-control" placeholder="sam@gmail.com" formControlName="email">
+      <span class="text-danger" *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched">Email is
+        Required</span>
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" placeholder=".....">
+      <input type="password" class="form-control" placeholder="....." formControlName="password">
+      <span class="text-danger"
+        *ngIf="signUpForm.get('password').invalid && signUpForm.get('password').touched">Password
+        is Required</span>
     </div>
-    <button type="button" class="card-button btn btn-info">Register</button>
+    <button type="submit" class="card-button btn btn-info" [disabled]="signUpForm.invalid">Register</button>
   </form>
   <div class="card-footer">
     <span (click)="onChangeComponent.emit('login')">Already Have An Account! Login</span>
