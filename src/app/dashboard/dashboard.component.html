@@ -3,30 +3,11 @@
   <app-dashboard-menus></app-dashboard-menus>
   <!-------Dashboard-Nav-Right-Side-Menus---------->
   <app-top-right-menu></app-top-right-menu>
-
 </div>
 
-
-<div class="nav-sidebar">
-  <h2>Dashboard</h2>
-  <div class="nav-sidebar--usermain" [routerLink]="['/dashboard/upload-image']">
-    <img src="../../assets/background-image/avatar.jpg" alt="" class="nav-sidebar--user">
-  </div>
-  <div class="nav-sidebar--menus">
-    <li>Settings</li>
-    <li>viewImages</li>
-    <li>UploadImages</li>
-  </div>
+<!-----------Dashboard-Side-Menus-------------->
+<div>
+  <app-dashboard-sidebar></app-dashboard-sidebar>
 </div>
-
-<!-- <div style="text-align: center;">
-    <div class="col-md-8">
-      <form>
-        <label for="">select image</label>&nbsp;
-        <input type="file" class="formControl">
-        <button type="button" class="btn btn-info">upload</button>
-      </form>
-    </div>
-  </div> -->
 
 <router-outlet></router-outlet>

@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardModule } from './dashboard/dashboard.module';
 
 
-import { LandingPage } from './landing-page/landing-page.component';
-
-
 const routes: Routes = [
-  { path: '', component: LandingPage, },
-  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
+  {
+    path: '', loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingPageModule)
+  },
+  {
+    path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => DashboardModule)
+  }
 
 ];
 
