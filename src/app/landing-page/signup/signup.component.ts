@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { SignUpData } from '../credential-types/signup-type';
+import { LandingPageApiService } from '../landing-page-api-service/landing-page.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,6 +11,10 @@ import { SignUpData } from '../credential-types/signup-type';
 })
 
 export class SignUpPage implements OnInit {
+
+  constructor(
+    private credentialService: LandingPageApiService
+  ) { }
 
   @Output() onChangeComponent = new EventEmitter; // change component emitter
 
@@ -32,9 +37,13 @@ export class SignUpPage implements OnInit {
       return
     }
     this.signupData = Object.assign(this.signupData, this.signUpForm.value);
-    console.log('signup data', this.signupData);
+    this.credentialService.userSignUpFunction(this.signupData)
+      .subscribe((res: string) => {
+        console.log('response', res);
+      },(err) =>{
+       console.log('server error',err);
 
-
+      })
   }
 
 }

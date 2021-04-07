@@ -9,8 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => DashboardModule)
+  }, {
+    path: '**',
+    loadChildren: async () => {
+      const m = await import('./404/page-not-found/page-not-found.module');
+      return m.PageNotFoundModule;
+    }
   }
-
 ];
 
 @NgModule({
