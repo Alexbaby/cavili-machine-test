@@ -15,7 +15,7 @@ export class SignUpPage implements OnInit {
 
   constructor(
     private credentialService: LandingPageApiService,
-    private router:Router
+    private router: Router
   ) { }
 
   @Output() onChangeComponent = new EventEmitter; // change component emitter

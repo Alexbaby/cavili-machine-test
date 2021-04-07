@@ -1,7 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { LoginData } from '../credential-types/login-type';
+import { Token } from '../credential-types/token.type';
+import { LandingPageApiService } from '../landing-page-api-service/landing-page.service';
 
 
 @Component({
@@ -12,9 +15,12 @@ import { LoginData } from '../credential-types/login-type';
 
 export class LoginPage implements OnInit {
 
+  constructor(private credentialService: LandingPageApiService, private router: Router) { }
+
   @Output() onChangeComponent = new EventEmitter  // change decorator
 
   loginform: FormGroup;
+  token: Token;
 
   loginData: LoginData = {
     email: '',
@@ -33,7 +39,16 @@ export class LoginPage implements OnInit {
       return
     }
     this.loginData = Object.assign(this.loginData, this.loginform.value);
-    console.log('login data',this.loginData);
+    this.credentialService.userSignInFunction(this.loginData)
+      .subscribe((token: Token) => {
+        if (token.token) {
+          localStorage.setItem('token', token.token);
+          this.router.navigate(['/dashboard']);
+        }
+      }, (err) => {
+        console.log('error', err);
+
+      })
 
   }
 
