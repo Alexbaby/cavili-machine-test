@@ -1,10 +1,14 @@
-nav {
+.nav {
+  display: flex;
+  align-items: center;
   height: 50px;
-
+  background-color: gray;
+  margin-left: 200px;
 }
 
- .nav-sidebar {
-  position:absolute;
+
+.nav-sidebar {
+  position: absolute;
   top: 0;
   height: 100vh;
   margin: 0;
@@ -31,7 +35,7 @@ nav {
   color: white;
   font-size: 15px;
   padding: 25px;
-  font-family: 'Times New Roman', Times, serif
+  font-family: "Times New Roman", Times, serif;
 }
 .nav-sidebar .nav-sidebar--usermain {
   display: flex;
@@ -49,7 +53,3 @@ nav {
   padding: 13px;
   cursor: pointer;
 }
-
-
-
-

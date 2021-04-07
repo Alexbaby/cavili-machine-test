@@ -1,0 +1,6 @@
+.main-page {
+  display: flex;
+}
+.main-page p {
+  text-align: center;
+}
