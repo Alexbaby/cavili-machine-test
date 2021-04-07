@@ -17,9 +17,8 @@ export class LandingPageApiService {
   signupData: SignUpData;
 
   userSignUpFunction(signupData: SignUpData) {
-    const url = this.urlService.getHostURL() + '/v1/signup'
-    console.log('url',url);
-    const body = this.signupData;
+    const url = this.urlService.getHostURL() + '/api/v1/signup'
+    const body = signupData;
     return this.http.post(url, body)
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { SignUpData } from '../credential-types/signup-type';
 import { LandingPageApiService } from '../landing-page-api-service/landing-page.service';
@@ -13,7 +14,8 @@ import { LandingPageApiService } from '../landing-page-api-service/landing-page.
 export class SignUpPage implements OnInit {
 
   constructor(
-    private credentialService: LandingPageApiService
+    private credentialService: LandingPageApiService,
+    private router:Router
   ) { }
 
   @Output() onChangeComponent = new EventEmitter; // change component emitter
@@ -40,8 +42,12 @@ export class SignUpPage implements OnInit {
     this.credentialService.userSignUpFunction(this.signupData)
       .subscribe((res: string) => {
         console.log('response', res);
-      },(err) =>{
-       console.log('server error',err);
+        if (res) {
+          alert('Sucess Please Login');
+          window.location.reload();
+        }
+      }, (err) => {
+        console.log('server error', err);
 
       })
   }

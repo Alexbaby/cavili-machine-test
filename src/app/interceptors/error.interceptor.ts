@@ -5,7 +5,10 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+import { CatchError } from '../shared/error-catch.service';
+
 export class ErrorInterceptor implements HttpInterceptor {
+
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req)
@@ -16,9 +19,11 @@ export class ErrorInterceptor implements HttpInterceptor {
           if (error.error instanceof ErrorEvent) {
             // client-side error
             errorMessage = `Error: ${error.error.message}`;
+
           } else {
             // server-side error
             errorMessage = `Error Status: ${error.status}\nMessage: ${error.message}`;
+
           }
 
           console.log(errorMessage);
