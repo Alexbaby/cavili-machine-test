@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
-import { UserImagePage } from './upload-image.component';
+
+import { DashboardMainPage } from './main.component';
 
 const routes: Routes = [
-  { path: '', component: UserImagePage }
+  { path: '', component: DashboardMainPage }
 ]
 
 @NgModule({
@@ -12,4 +12,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class UserImageRoutingModule { }
+export class DashboardMainRoutingModule { }
