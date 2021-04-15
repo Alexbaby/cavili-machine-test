@@ -10,7 +10,13 @@
   <app-dashboard-sidebar></app-dashboard-sidebar>
 </div>
 
-  <div style="margin-left: 250px;">
-   <app-dashboard-main></app-dashboard-main>
-  </div>
+<div class="upload-div">
+  <h3>UPLOAD IMAGE</h3>
+</div>
+<div class="upload-form">
+  <form>
+  <input type="file" name="imagefile" id="imagefile" (change)="changeListener($event)" class="formcontrol">&nbsp;
+  <span><button type="button" class="btn btn-info">Upload Image</button></span>
+</form>
+</div>
 <router-outlet></router-outlet>

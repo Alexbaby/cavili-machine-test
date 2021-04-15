@@ -6,7 +6,30 @@
   margin-left: 200px;
 }
 
-.navbar-expand .navbar-nav {
-  margin: 250px;
+.upload-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:50px;
+  background-color: gainsboro;
+  padding-bottom: 50px;
+}
+.upload-div h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+  font-family: ui-sans-serif
 }
 
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 61px;
+  padding-left: 126px;
+}
+
+.btn-info
+{
+  font-size: 14px;
+}
