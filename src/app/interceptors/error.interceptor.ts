@@ -5,7 +5,6 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { CatchError } from '../shared/error-catch.service';
 
 export class ErrorInterceptor implements HttpInterceptor {
 
@@ -27,6 +26,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           }
 
           console.log(errorMessage);
+          window.alert(errorMessage);
           return throwError(errorMessage);
         })
       );

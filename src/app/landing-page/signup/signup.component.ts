@@ -27,6 +27,10 @@ export class SignUpPage implements OnInit {
     password: ''
   };
 
+  error = {
+    message: ''
+  }
+
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
@@ -47,7 +51,11 @@ export class SignUpPage implements OnInit {
           window.location.reload();
         }
       }, (err) => {
-        console.log('server error', err);
+        if (err) {
+          console.log('error', err.error.error.message);
+          this.error.message = err.error.error.message;
+        }
+
 
       })
   }

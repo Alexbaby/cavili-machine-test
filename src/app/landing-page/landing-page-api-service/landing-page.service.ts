@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http'
 import { UrlService } from '../../shared/url.service';
 import { SignUpData } from '../credential-types/signup-type';
 import { LoginData } from '../credential-types/login-type';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

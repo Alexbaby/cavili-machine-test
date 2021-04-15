@@ -14,6 +14,9 @@
     </div>
     <button type="submit" class="card-button btn btn-info" [disabled]="signUpForm.invalid">Register</button>
   </form>
+  <div class="errormessage">
+    <p *ngIf="error">{{error.message}}</p>
+  </div>
   <div class="card-footer">
     <span (click)="onChangeComponent.emit('login')">Already Have An Account! Login</span>
   </div>

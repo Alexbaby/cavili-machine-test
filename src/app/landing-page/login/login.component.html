@@ -11,8 +11,11 @@
       <span class="text-danger" *ngIf="loginform.get('password').invalid && loginform.get('password').touched">Password
         is Required</span>
     </div>
-    <button type="submit" class="card-button btn btn-info"  [disabled]="loginform.invalid">Login</button>
+    <button type="submit" class="card-button btn btn-info" [disabled]="loginform.invalid">Login</button>
   </form>
+  <div class="errormessage">
+    <p *ngIf="error">{{error.message}}</p>
+  </div>
   <div class="card-footer">
     <span (click)="onChangeComponent.emit('signup')">Create An Account</span>
   </div>

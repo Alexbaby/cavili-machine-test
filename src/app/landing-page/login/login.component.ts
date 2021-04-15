@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 import { LoginData } from '../credential-types/login-type';
 import { Token } from '../credential-types/token.type';
 import { LandingPageApiService } from '../landing-page-api-service/landing-page.service';
@@ -27,6 +28,10 @@ export class LoginPage implements OnInit {
     password: ''
   }
 
+  error = {
+    message: ''
+  }
+
   ngOnInit(): void {
     this.loginform = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
@@ -46,7 +51,10 @@ export class LoginPage implements OnInit {
           this.router.navigate(['/dashboard']);
         }
       }, (err) => {
-        console.log('error', err);
+         if(err)  {
+           console.log('error',err.error.error.message);
+           this.error.message = err.error.error.message;
+         }
 
       })
 

@@ -29,6 +29,15 @@
   cursor: pointer;
 }
 
+.errormessage p
+ {
+   color: red;
+   font-size: 12px;
+   margin: 0;
+   margin-top: 7px;
+ }
+
+
 /* login &&  signup common style end */
 
 .ml-215 {
