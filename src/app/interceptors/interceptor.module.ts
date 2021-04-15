@@ -3,6 +3,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CommonInterceptor } from './common-interceptor';
 import { ErrorInterceptor } from './error.interceptor';
+import { TokenInterceptor } from './token-interceptor';
 
 
 @NgModule({
@@ -13,6 +14,10 @@ import { ErrorInterceptor } from './error.interceptor';
   }, {
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
+    multi: true
+  }, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
     multi: true
   }
   ]

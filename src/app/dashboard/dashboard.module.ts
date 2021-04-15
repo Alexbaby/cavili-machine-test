@@ -8,6 +8,7 @@ import { DashBoardMenuPage } from './dashboard-menus/menu.component';
 import { TopRightMenuPage } from './dashboard-top-right-menus/top-right-menu.component';
 import { SideBarPage } from './dashboard-sidebar/sidebar.component';
 import { DashboardMainPage } from '../dashboard/dashboard-main-view/main.component';
+import { FooterPage } from './dashboard-footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,9 @@ import { DashboardMainPage } from '../dashboard/dashboard-main-view/main.compone
     DashBoardMenuPage,
     TopRightMenuPage,
     SideBarPage,
-    DashboardMainPage
-  ],
+    DashboardMainPage,
+    FooterPage
+,  ],
   imports: [
     FormsModule,
     CommonModule,

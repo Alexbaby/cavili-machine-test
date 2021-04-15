@@ -18,7 +18,10 @@ export class FileUploadService {
 
 
   uploadImage(data:string) {
-  
+   console.log('image string');
+   const url = this.urlService.getHostURL() + '/api/v1/upload';
+   const body = JSON.stringify(data);
+   return this.http.post(url,body)
   }
 
 }

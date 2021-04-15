@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Base64Service } from './base64-service/base64.service';
-
+import { FileUploadService } from './upload-file-api-service/upload-file.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +12,7 @@ import { Base64Service } from './base64-service/base64.service';
 
 export class DashboardPage implements OnInit {
 
-  constructor(private base64: Base64Service) { }
+  constructor(private uploadservice: FileUploadService) { }
 
   myForm: FormGroup
   ImageFile: any;
@@ -32,9 +31,20 @@ export class DashboardPage implements OnInit {
 
     myReader.onloadend = (e) => {
       this.ImageFile = myReader.result.split(',')[1];
-      console.log('imagefile', this.ImageFile);
+      // console.log('imagefile', this.ImageFile);
     }
     myReader.readAsDataURL(file);
+  }
+
+  uploadImage() {
+    this.uploadservice.uploadImage(this.ImageFile)
+      .subscribe((res) => {
+        console.log('res', res);
+
+      }, (err) => {
+        console.log('error', err);
+
+      })
   }
 
 }

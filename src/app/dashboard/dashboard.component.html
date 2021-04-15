@@ -16,7 +16,8 @@
 <div class="upload-form">
   <form>
   <input type="file" name="imagefile" id="imagefile" (change)="changeListener($event)" class="formcontrol">&nbsp;
-  <span><button type="button" class="btn btn-info">Upload Image</button></span>
+  <span><button type="button" class="btn btn-info" (click)="uploadImage()">Upload Image</button></span>
 </form>
 </div>
+
 <router-outlet></router-outlet>
