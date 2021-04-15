@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControlName, FormControl, Validators } from '@angular/forms';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { FileUploadService } from './upload-file-api-service/upload-file.service';
 
@@ -9,50 +10,65 @@ import { FileUploadService } from './upload-file-api-service/upload-file.service
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardPage implements OnInit {
-  constructor(private uploadservice: FileUploadService) {}
+  constructor(private uploadservice: FileUploadService, private http: HttpClient,) { }
 
-  myForm: FormGroup;
-  ImageFile: any;
+  display_form: FormGroup;
+  FormData: any;
+
+  file: {
+    name: any
+  }
+
   error = {
     message: '',
   };
 
-  ngOnInit(): void {}
+  displayError = {
+    message: '',
+  }
 
-  changeListener(files: any): void {
+  ngOnInit(): void {
+    this.display_form = new FormGroup({
+      'filename': new FormControl(null, [Validators.required]),
+    })
+  }
+
+
+  uploadImage(files: any) {
+    console.log('files', files);
     if (files.length === 0) {
       return;
     }
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
-    this.uploadservice.uploadImage(formData).subscribe((res) => {
-      console.log(res);
-      
-    })
-  }
-  // readThis(inputValue: any): void {
-  //   var file: File = inputValue.files[0];
-  //   var myReader: any = new FileReader();
 
-  //   myReader.onloadend = (e) => {
-  //     this.ImageFile = myReader.result.split(',')[1];
-  //     // console.log('imagefile', this.ImageFile);
-  //   };
-  //   myReader.readAsDataURL(file);
-  // }
-
-  uploadImage() {
-    this.uploadservice.uploadImage(this.ImageFile).subscribe(
+    this.uploadservice.uploadImage(formData).subscribe(
       (res) => {
         console.log('res', res);
       },
       (err) => {
         if (err) {
           console.log('error', err);
-          this.error.message = err.error.message;
+          this.error.message = err.error.error.message;
         }
       }
     );
+  }
+
+  getImage() {
+    if (this.display_form.invalid) {
+      return
+    }
+    this.uploadservice.viewImage(this.display_form.value.filename)
+      .subscribe((res: any) => {
+        console.log('image', res);
+      }, (err) => {
+        if (err) {
+          console.log('error', err);
+          this.displayError.message = err.error.error.message;
+        }
+
+      })
   }
 }

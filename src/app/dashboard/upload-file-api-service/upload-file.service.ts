@@ -10,13 +10,13 @@ export class FileUploadService {
   constructor(private http: HttpClient, private urlService: UrlService) {}
 
   uploadImage(data: any) {
-    console.log('image string');
     const url = this.urlService.getHostURL() + '/upload';
     const body = data;
-    console.log('data',body);
-    
     return this.http.post(url, body);
   }
 
-  viewImage(data) {}
+  viewImage(data) {
+    const url = this.urlService.getHostURL() + `/uploads/${data}`;
+    return this.http.get(url)
+  }
 }

@@ -15,24 +15,30 @@
 </div>
 <div class="upload-form">
   <form>
-    <input
-      type="file"
-      name="imagefile"
-      id="imagefile"
-      #file
-      (change)="changeListener(file.files)"
-      class="formcontrol"
-    />&nbsp;
-    <span
-      ><button type="button" class="btn btn-info" (click)="uploadImage()">
+    <input type="file" name="imagefile" id="imagefile" #file class="formcontrol" />&nbsp;
+    <span><button type="button" class="btn btn-info" (click)="uploadImage(file.files)">
         Upload Image
-      </button></span
-    >
+      </button></span>
     <p *ngIf="error" style="color: red;">{{ error.message }}</p>
   </form>
 </div>
 
-<router-outlet></router-outlet>
+<div class="view-image">
+  <h3>DISPLAY IMAGE</h3>
+</div>
+<div class="display-form">
+  <form [formGroup]="display_form" (ngSubmit)="getImage()">
+    <input type="text" formControlName="filename" name="filename" id="file_id" class="formcontrol"
+      placeholder="Enter File Name">&nbsp;
+    <span><button type="submit" class="btn btn-info font-size: 14px;" [disabled]="display_form.invalid">Get
+        Image</button></span><br>
+    <span class="text-danger"
+      *ngIf="display_form.get('filename').invalid && display_form.get('filename').touched">FileName
+      is Required</span>
+    <span style="color: red;" *ngIf="displayError">{{displayError.message}}</span>
+  </form>
+</div>
+
 <div class="footer">
   <app-footer></app-footer>
 </div>

@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top:50px;
+  padding-top: 50px;
   background-color: gainsboro;
   padding-bottom: 50px;
 }
@@ -18,7 +18,7 @@
   padding: 0;
   margin: 0;
   font-size: 25px;
-  font-family: ui-sans-serif
+  font-family: ui-sans-serif;
 }
 
 .upload-form {
@@ -26,16 +26,44 @@
   flex-direction: column;
   align-items: center;
   padding-top: 61px;
+  padding-bottom: 45px;
   padding-left: 126px;
 }
 
 .footer {
   display: flex;
-  background-color: black;
-  
+  background-color: #808080;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  height: 50px;
+  margin-left: 200px;
 }
 
-.btn-info
-{
+.view-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  background-color: gainsboro;
+  padding-bottom: 50px;
+}
+
+.view-image h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+  font-family: ui-sans-serif;
+}
+
+.display-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 61px;
+  padding-left: 126px;
+}
+
+.btn-info {
   font-size: 14px;
 }

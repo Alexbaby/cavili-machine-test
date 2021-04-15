@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '', loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingPageModule)
   },
   {
-    path: 'dashboard', canActivate:[LogginGuardGuard], loadChildren: () => import('./dashboard/dashboard.module').then(m => DashboardModule)
+    path: 'dashboard', canActivate: [LogginGuardGuard], loadChildren: () => import('./dashboard/dashboard.module').then(m => DashboardModule)
   }, {
     path: '**',
     loadChildren: async () => {

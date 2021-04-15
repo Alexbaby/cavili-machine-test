@@ -9,9 +9,10 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardPage,
-    // children: [{
-
-    // }]
+    children: [{
+       path:'view-images',
+       loadChildren: () => import('./dashboard-show-images/show-image.component.module').then(m=> m.DashboardShowImageModule)
+    }]
   }];
 
 
