@@ -1,6 +1,6 @@
 {
-	"/api/*": {
-		"target": "https://serene-hollows-11661.herokuapp.com",
+	"/herokuapp.com/*": {
+		"target": "https://serene-hollows-11661",
 		"secure": false,
 		"changeOrigin": true,
 		"logLevel": "debug"
