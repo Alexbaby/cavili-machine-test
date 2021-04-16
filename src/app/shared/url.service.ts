@@ -12,7 +12,7 @@ export class UrlService {
 
     switch (window.location.hostname) {
       case 'localhost':
-        return 'https://serene-hollows-11661.herokuapp.com';
+        return '/api/v1';
       default:
         return 'https://serene-hollows-11661.herokuapp.com';
     }

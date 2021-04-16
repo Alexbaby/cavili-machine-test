@@ -20,13 +20,13 @@ export class LandingPageApiService {
   loginData: LoginData;
 
   userSignUpFunction(signupData: SignUpData) {
-    const url = this.urlService.getHostURL() + '/api/v1/signup';
+    const url = this.urlService.getHostURL() + '/signup';
     const body = signupData;
     return this.http.post(url, body)
   }
 
   userSignInFunction(loginData: LoginData) {
-    const url = this.urlService.getHostURL() + '/api/v1/signin';
+    const url = this.urlService.getHostURL() + '/signin';
     const body = loginData;
     return this.http.post(url, body)
   }

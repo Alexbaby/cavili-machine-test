@@ -19,7 +19,8 @@
       type="file"
       name="imagefile"
       id="imagefile"
-      (change)="changeListener($event)"
+      #file
+      (change)="changeListener(file.files)"
       class="formcontrol"
     />&nbsp;
     <span
