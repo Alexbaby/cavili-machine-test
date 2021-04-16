@@ -15,9 +15,23 @@
 </div>
 <div class="upload-form">
   <form>
-  <input type="file" name="imagefile" id="imagefile" (change)="changeListener($event)" class="formcontrol">&nbsp;
-  <span><button type="button" class="btn btn-info" (click)="uploadImage()">Upload Image</button></span>
-</form>
+    <input
+      type="file"
+      name="imagefile"
+      id="imagefile"
+      (change)="changeListener($event)"
+      class="formcontrol"
+    />&nbsp;
+    <span
+      ><button type="button" class="btn btn-info" (click)="uploadImage()">
+        Upload Image
+      </button></span
+    >
+    <p *ngIf="error" style="color: red;">{{ error.message }}</p>
+  </form>
 </div>
 
 <router-outlet></router-outlet>
+<div class="footer">
+  <app-footer></app-footer>
+</div>

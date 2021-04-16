@@ -29,6 +29,12 @@
   padding-left: 126px;
 }
 
+.footer {
+  display: flex;
+  background-color: black;
+  
+}
+
 .btn-info
 {
   font-size: 14px;

@@ -6,21 +6,18 @@ import { FileUploadService } from './upload-file-api-service/upload-file.service
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
-
-
 export class DashboardPage implements OnInit {
+  constructor(private uploadservice: FileUploadService) {}
 
-  constructor(private uploadservice: FileUploadService) { }
-
-  myForm: FormGroup
+  myForm: FormGroup;
   ImageFile: any;
+  error = {
+    message: '',
+  };
 
-  ngOnInit(): void {
-
-  }
-
+  ngOnInit(): void {}
 
   changeListener($event): void {
     this.readThis($event.target);
@@ -32,19 +29,21 @@ export class DashboardPage implements OnInit {
     myReader.onloadend = (e) => {
       this.ImageFile = myReader.result.split(',')[1];
       // console.log('imagefile', this.ImageFile);
-    }
+    };
     myReader.readAsDataURL(file);
   }
 
   uploadImage() {
-    this.uploadservice.uploadImage(this.ImageFile)
-      .subscribe((res) => {
+    this.uploadservice.uploadImage(this.ImageFile).subscribe(
+      (res) => {
         console.log('res', res);
-
-      }, (err) => {
-        console.log('error', err);
-
-      })
+      },
+      (err) => {
+        if(err) {
+          console.log('error',err);
+          this.error.message = err.error.message;
+        }
+      }
+    );
   }
-
 }
